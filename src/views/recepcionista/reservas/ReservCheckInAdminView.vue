@@ -26,12 +26,7 @@ import SidebarComponent from '@/components/SidebarComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import ListSidebarRecepcionista from '@/components/ListSidebarRecepcionista.vue';
 import AdminGenerateCheckin from '@/components/AdminGenerateCheckin.vue';
-const socket = new WebSocket('wss://vallesur.bjrcode.com/websocket.com');
-socket.addEventListener('message', (event) => {
-  const data = event.data;
-  console.log(data);
-  // Procesa los datos recibidos desde el servidor websocket en Vue.js
-});
+
 export default {
     
     components: {
@@ -47,11 +42,6 @@ export default {
     },
     mounted(){
         console.log(this.$route.params.id);
-    },
-    methods:{
-        sendMessage(){
-            socket.send('Datos enviados desde Vue.js');
-        }
     }
 }
 </script>

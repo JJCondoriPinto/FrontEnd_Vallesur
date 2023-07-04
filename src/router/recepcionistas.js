@@ -6,8 +6,6 @@ import ReservasCreateAuth from '@/views/recepcionista/reservas/ReservCreateAuth.
 import ReservasCreateUser from '@/views/recepcionista/reservas/ReservCreateHuesped.vue'
 import ReservasCreate from '@/views/recepcionista/reservas/ReservCreate.vue';
 import ReservasEditarRecepView from '@/views/recepcionista/reservas/ReservEditView.vue';
-import ReservAdminShow from '@/views/recepcionista/reservas/ReservAdminShow.vue';
-import ReservasRecepScan from '@/views/recepcionista/reservas/ReservScanQR.vue';
 
 const routes_recepcionista = [
   {
@@ -28,11 +26,6 @@ const routes_recepcionista = [
     path: "reservas",
     name: "recepcionista-reservas",
     component: RecepcionistaReservasView
-  },
-  {
-    path: "reservas-show/:id",
-    name: "recepcionista-reservas-show",
-    component: ReservAdminShow
   },
   {
     path: "reservas-editar/:id",
@@ -58,11 +51,6 @@ const routes_recepcionista = [
     path: "reservas-checkin/:id",
     name: "recepcionista-generate-checkin",
     component: RecepcionistaReservaGenerateCheckInView
-  },
-  {
-    path: "reservas-scan",
-    name: "reservas-scan-qr",
-    component: ReservasRecepScan
   },
   {
     path: "check",

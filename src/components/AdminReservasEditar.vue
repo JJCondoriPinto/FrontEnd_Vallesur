@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         updateReserva(){
-            axios.put('/api/reserva/'+this.id,this.formData).then((value)=>{
+            axios.put('/api/reserva/'+this.id).then((value)=>{
                 console.log(value);
                 this.$router.push({name:'recepcionista-reservas'});
             })
