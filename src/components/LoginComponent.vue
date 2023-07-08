@@ -43,7 +43,15 @@
               name="password"
               required
             />
-            <button class="form__button button_login submit">Iniciar Sesión</button>
+            <button class="form__button button_login submit">
+              <p v-if="this.status == 0" class="form__label">Iniciar sesion</p>
+              <div v-if="this.status == 1" class="d-flex">
+                <div class="spinner-border" role="status" v-if="this.status == 1">
+                  <span class="sr-only">Loading...</span>
+                </div>  
+                <p v-if="this.status == 1">Iniciando sesion</p>
+              </div>
+            </button> 
           </form>
         </div>
       </div>
@@ -59,13 +67,20 @@
         email: '',
         password: '',
       },
-      log: {}
+      log: {},
+      status: 0, // 0(not init), 1(waiting), 2(login)
     }),
     methods: {  
       async login() {
+        this.status = 1;
         await this.$store.dispatch('login', this.formData);
-        if (this.$store.state.auth) {this.$router.push(`/${this.$store.state.user.rol}`);}
-      }
+        if (this.$store.state.auth) {
+          this.status = 2;
+          this.$router.push(`/${this.$store.state.user.rol}`);
+        } else {
+          this.status = 0;
+        }
+      },
     }
   };
 </script>
