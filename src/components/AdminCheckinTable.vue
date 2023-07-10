@@ -1,36 +1,50 @@
 <template>
-    <div class="row">
-        <div class="">
-            <div class="table-responsive">
-                <DataTable :data="reservas" :columns="columns"
-                    class="table table-striped table-bordered display table-hover table-dark" :options="{
-                        responsive: true, autoWidth: false, dom: 'Bfrtip', language: {
-                            search: 'Buscar...',
-                            zeroRecords: 'No hay registros para mostrar',
-                            info: 'Mostrando del _START_ a _END_ de _TOTAL_ registros',
-                            infoFiltered: '(Filtrados de _MAX_ registros.)',
-                            paginate: { first: 'Primero', previous: 'Anterior', next: 'Siguiente', last: 'Último' }
-                        }, buttons: botones
-                    }">
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>#</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Correo</th>
-                            <th>Tipo Habitación</th>
-                            <th>Fecha Llegada</th>
-                            <th>Canal</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                </DataTable>
-            </div>
-        </div>
+  <div class="row">
+    <div class="">
+      <div class="table-responsive">
+        <DataTable
+          :data="CheckIn"
+          :columns="columns"
+          class="table table-striped table-bordered display table-hover table-dark"
+          :options="{
+            responsive: true,
+            autoWidth: true,
+            dom: 'Bfrtip',
+            language: {
+              search: 'Buscar...',
+              zeroRecords: 'No hay registros para mostrar',
+              info: 'Mostrando del _START_ a _END_ de _TOTAL_ registros',
+              infoFiltered: '(Filtrados de _MAX_ registros.)',
+              paginate: {
+                first: 'Primero',
+                previous: 'Anterior',
+                next: 'Siguiente',
+                last: 'Último',
+              },
+            },
+            buttons: botones,
+          }"
+        >
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>#</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Pax</th>
+              <th>Recepcionista</th>
+              <th>Fecha Ingreso</th>
+              <th>Habitación</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+        </DataTable>
+      </div>
     </div>
+  </div>
 </template>
+
 <script>
 import axios from 'axios';
 import DataTable from 'datatables.net-vue3';
@@ -52,16 +66,16 @@ DataTable.use(DataTableLib);
 DataTable.use(pdfmake);
 DataTable.use(ButtonsHtml5);
 DataTable.use(print);
-DataTable.use(Buttons);
-export default {
-    components: {
-        DataTable,
+DataTable.use(Buttons)
 
-    },
-    data() {
-        return {
-            reservas: null,
-            columns: [
+export default {
+  components: {
+    DataTable,
+  },
+  data() {
+    return {
+      CheckIn: null,
+      columns: [
                 {
                     data: '_id',
                     visible: false
@@ -69,37 +83,23 @@ export default {
                 {
                     data: null, render: function (data, type, row, meta) { return `${meta.row + 1}` }
                 },
-                { data: 'huesped.nombres' },
-                { data: 'huesped.apellidos' },
-                { data: 'huesped.correo' },
-                { data: 'habitacion.tipo_habitacion' },
-                {
-                    data: 'datosReserva.fecha_checkin',
-                    render: function (data) {
-                        // Crear un objeto Date a partir del valor de la celda
-                        const date = new Date(data);
-                        // Formatear la fecha utilizando el método toLocaleDateString
-                        const formattedDate = date.toLocaleDateString('es-PE', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        });
-
-                        // Devolver la fecha formateada
-                        return formattedDate;
-                    }
-                },
-                { data: 'datosReserva.tipo_reserva' },
+                { data: 'reserva.huesped.nombres' },
+                { data: 'reserva.huesped.apellidos' },
+                { data: 'paxs' },
+                { data: 'recepcionista.nombres' },
+                { data: 'fecha_ingreso' },
+                { data: 'reserva.habitacion.tipo_habitacion'},
                 { data: 'estado' },
                 {
                     data: null, render: function () {
                         return `<td>
-                        <button id="check_in" class="btn btn-sm btn-primary"><i class="fa-solid fa-circle-right"></i></button>
+                        <button id="check_out" class="btn btn-sm btn-primary"><i class="fa-solid fa-circle-right"></i></button>
                         <button id="editar" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
                         <button id="eliminar" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
                         </td>`;
                     }
                 },
+                
             ],
             botones: [
                 {
@@ -128,11 +128,26 @@ export default {
                 },
 
             ]
-        }
+    };
+  },
+  methods: {
+    getCheckins() {
+      axios.get("/api/checkin").then((value) => {
+        console.log(value);
+        this.CheckIn=value.data.data;
+        
+      });
     },
-    mounted() {
-        this.getReservas();
-        this.$nextTick(() => {
+    generateCheckOut(id){
+        console.log(id);
+        this.$router.push({name:'recepcionista-check-out-generate',params:{id:id}})
+
+    }
+  },
+
+  mounted(){
+    this.getCheckins();
+    this.$nextTick(() => {
             const table = $('.table').DataTable();
             table.on('click', '#editar', (event) => {
                 event.stopPropagation();
@@ -141,10 +156,10 @@ export default {
                 this.editarReserva(rowData._id);
 
             });
-            table.on('click', '#check_in', (event) => {
+            table.on('click', '#check_out', (event) => {
                 event.stopPropagation();
                 const rowData = table.row($(event.currentTarget).closest('tr')).data();
-                this.generateCheckIn(rowData._id);
+                this.generateCheckOut(rowData._id);
             });
             table.on('click', '#eliminar', (event) => {
                 event.stopPropagation();
@@ -168,30 +183,20 @@ export default {
                 }
             });
         });
-    },
-    methods: {
-        editarReserva(id){
-            this.$router.push({name:'recepcionista-editar-reservas',params:{id:id}});
-        },
-        generateCheckIn(id) {
-            this.$router.push({ name: 'recepcionista-generate-checkin', params: { id: id } });
-        },
-        getReservas() {
-            axios.get("/api/reserva").then(
-                response => (
-                    console.log(response),
-                    this.reservas = response.data.data
-                )
-            ).catch(
-                (error) => {console.log(error)}
-            )
-            
-        },
-        onRowClick(id) {
-            this.$router.push({ name: 'gerente-huespedes-show', params: { id: id } });
-        }
-    }
+  }
+};
+</script>
+
+<style>
+@import url("@/css/app.css");
+@import "datatables.net-bs5";
+
+.table-responsive {
+  max-height: 500px;
+  color: white;
+  padding-right: 15px;
+  margin-top: 40px;
 }
 
 
-</script>
+</style>

@@ -81,8 +81,9 @@ export default {
     methods: {
         async logout() {
             await this.$store.dispatch('logout');
+            return this.$router.push('/login');
         },
-            isRouteActive(routeName) {
+        isRouteActive(routeName) {
             return this.$route.name === routeName;
         }
     }

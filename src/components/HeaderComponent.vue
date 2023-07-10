@@ -1,3 +1,10 @@
+<script setup>
+  function changeTheme() {
+    var modeSwitch = document.querySelector('.mode-switch');
+    document.documentElement.classList.toggle('light');
+    modeSwitch.classList.toggle('active');
+  }
+</script>
 <template>
   <div class="app-content-header">
     <h1 class="app-content-headerText">
@@ -5,7 +12,7 @@
       <slot name="title"></slot>
 
     </h1>
-    <button class="mode-switch" title="Switch Theme">
+    <button class="mode-switch" v-on:click="changeTheme()" title="Switch Theme">
       <svg
         class="moon"
         fill="none"

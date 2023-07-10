@@ -29,9 +29,22 @@
     --filter-reset: #2c394f;
     --input-radio: #2c394f;
     --filter-shadow: rgba(16, 24, 39, 0.8) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+    --button-add: #2c394f;
+    --button-add-hover: #6291fd;
 }
 
 .light:root {
+    --status-available: #205c42;
+    --status-available-before: rgba(17, 209, 126, 0.203);
+    --status-reserved: #b9bb3b;
+    --status-reserved-before: rgba(217, 219, 100, 0.2);
+    --status-busy: #a32d2d;
+    --status-busy-before: rgba(163, 45, 45, 0.2);
+    --status-cleaning: #194c73;
+    --status-cleaning-before: rgba(56, 111, 152, 0.2);
+    --status-notOperational: #6b6666;
+    --status-notOperational-before: rgba(107, 102, 102, 0.2);
+    
     --app-bg: #ebebeb;
     --sidebar: #d2d8e7;
     --app-content-secondary-color: #dadde5;
@@ -42,4 +55,6 @@
     --sidebar-main-color: #1f1c2e;
     --filter-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     --input-radio: #cdcfd3;
+    --button-add: #8ea4c89e;
+    --button-add-hover: #7fa5ffb4;
 }
