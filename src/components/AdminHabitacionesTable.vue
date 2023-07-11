@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="">
-            <div class="table-responsive" >
+            <div class="table-container" >
                 <DataTable :data="products" :columns="columns" id="tabla"
                     class="tablita" :options="{
                         responsive: true, autoWidth: true, dom: 'Bfrtip', language: {
@@ -46,7 +46,7 @@
     margin-top: 50px;
 }
 .tablita {
-    background-color: rgb(35, 43, 72);
+    background-color: var(--app-bg);
     text-align: center;
     text-transform: capitalize;
     border-collapse: collapse;
@@ -188,11 +188,7 @@ export default {
                 { data: 'nro_habitacion' },
                 { data: 'tipo_habitacion' },
                 { data: 'precio' },
-                { data: 'estado' ,render:function(data){
-                    if(data=="Disponible"){
-                        return `<div class="disponible-container">Disponible</div>`
-                    }
-                }},
+                { data: 'estado'},
                 { data: null,render:
                     function(data,type,row){
                         let inicio=row.reservado_desde;

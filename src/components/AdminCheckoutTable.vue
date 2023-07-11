@@ -1,11 +1,11 @@
 <template>
   <div class="row">
     <div class="">
-      <div class="table-responsive">
-        <DataTable
+      <div class="table-container">
+        <DataTable id="tabla"
           :data="CheckIn"
           :columns="columns"
-          class="table table-striped table-bordered display table-hover table-dark"
+          class="tablita"
           :options="{
             responsive: true,
             autoWidth: false,
@@ -157,7 +157,7 @@ export default {
   mounted() {
     this.getCheckouts();
     this.$nextTick(() => {
-      const table = $(".table").DataTable();
+      const table = $("#tabla").DataTable();
       
 
       table.on("click", "tr", (event) => {

@@ -8,7 +8,6 @@
                 <div class="app-content">
                     <HeaderComponent>
                         <template #title> Huespedes Registrados</template>
-                        <template #button-insert></template>
                     </HeaderComponent>
                     <ShowEditHuesped :id=this.id>
 

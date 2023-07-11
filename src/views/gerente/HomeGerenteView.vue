@@ -8,7 +8,7 @@
 
                 <div class="app-content">
                     <HeaderComponent>   
-                        <template #title> Inicio </template>
+                        <template #title> Bienvenido(a) {{ this.$store.state.user.nombres }} </template>
                         <template #button-insert>
                             <button class="app-content-headerButton" v-on:click="addRemind()" data-bs-toggle="modal" data-bs-target="#newRemind" data-bs-whatever="@mdo">
                                 Añadir recordatorio

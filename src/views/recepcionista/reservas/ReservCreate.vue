@@ -11,8 +11,6 @@
                         <template #title>
                             Registrar Reserva
                         </template>
-                        <template #actions>
-                        </template>
                     </HeaderComponent>
                     <FormReserva :id=this.id>
 

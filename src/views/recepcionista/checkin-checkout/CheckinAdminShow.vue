@@ -9,7 +9,6 @@
                 <div class="app-content">
                     <HeaderComponent>
                         <template #title> Detalles de Checkin</template>
-                        <template #button-insert></template>
                     </HeaderComponent>
                     <ShowDataCheckin :id=this.id>
 

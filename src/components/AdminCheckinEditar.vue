@@ -3,7 +3,7 @@
         <div class="form-parent card-show-parent">
             <div class="form">
 
-                <form class="form-updateUser" @submit.prevent="updateReserva">
+                <form class="form-updateUser" @submit.prevent="updateCheckin">
                     <input type="hidden" v-model="this.formData._id">
                     <div class="card-group form-group">
                         <label class="form-label label-radio">Fecha Checkout</label>
@@ -26,6 +26,7 @@ export default {
         return {
             formData: {
                 _id: null,
+                fecha_checkin: "",
                 fecha_checkout: ''
             },
         };
@@ -36,10 +37,8 @@ export default {
     },
     methods: {
         updateCheckin(){
-            axios.put('/api/checkin/',this.formData).then((value)=>{
-                console.log(value);
-               
-                 this.$router.push({name:'recepcionista-check'})
+            axios.put('/api/checkin/'+ this.formData._id,this.formData).then((value)=>{
+                this.$router.push({name:'recepcionista-check'})
             })
         },  
         // Conversion de la fecha actual en formato de cadena
@@ -60,16 +59,14 @@ export default {
         },
         getCheckin() {
             axios.get('/api/checkin/'+this.id).then((value) => {
-                console.log('/api/checkin/'+this.id);
-                console.log(value);
                 this.formData._id = value.data.data._id;
+                this.formData.fecha_checkin = value.data.data.reserva.datosReserva.fecha_checkin;
                 this.formData.fecha_checkout = value.data.data.reserva.datosReserva.fecha_checkout;
-                console.log(this.formData);
             })
         },
         getFormattedCheckOutDate() {
             if (this.formData.fecha_checkout) {
-                const checkOutDate = new Date(this.formData.fecha_checkout);
+                const checkOutDate = new Date(this.formData.fecha_checkin);
                 const yyyy = checkOutDate.getFullYear();
                 let mm = checkOutDate.getMonth() + 1;
                 let dd = checkOutDate.getDate() + 2;

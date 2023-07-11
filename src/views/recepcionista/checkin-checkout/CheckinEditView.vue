@@ -11,8 +11,6 @@
                         <template #title>
                             Editar Checkin
                         </template>
-                        <template #actions>
-                        </template>
                     </HeaderComponent>
                     <AdminCheckinEditar :id=this.id>
 

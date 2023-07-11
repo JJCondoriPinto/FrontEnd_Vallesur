@@ -9,7 +9,6 @@
                 <div class="app-content">
                     <HeaderComponent>
                         <template #title> Detalles de Checkout</template>
-                        <template #button-insert></template>
                     </HeaderComponent>
                     <ShowDataCheckout :id=this.id>
 

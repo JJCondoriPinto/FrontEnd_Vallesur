@@ -79,7 +79,6 @@
   width: auto;
   padding: 20px;
   padding-top: 0;
-  /*margin-top: 10em;*/
 }
 
 #myChart5 {

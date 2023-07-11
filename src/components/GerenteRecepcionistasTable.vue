@@ -1,31 +1,31 @@
 <template>
     <div class="row">
-        <div class="">
-            <div class="table-responsive" >
-                <DataTable :data="products" :columns="columns" id="tabla"
-                    class="tablita" :options="{
-                        responsive: true, autoWidth: true, dom: 'Bfrtip', language: {
-                            search: 'Buscar...',
-                            zeroRecords: 'No hay registros para mostrar',
-                            info: 'Mostrando del _START_ a _END_ de _TOTAL_ registros',
-                            infoFiltered: '(Filtrados de _MAX_ registros.)',
-                            paginate: { first: 'Primero', previous: 'Anterior', next: 'Siguiente', last: 'Último' }
-                        }, buttons: botones
-                    }">
+        <div class="table-container">
+            <div >
+                <DataTable :data="products" :columns="columns" id="tabla" class="tablita" :options="{
+                    responsive: true, autoWidth: true, dom: 'Bfrtip', language: {
+                        search: 'Buscar...',
+                        zeroRecords: 'No hay registros para mostrar',
+                        info: 'Mostrando del _START_ a _END_ de _TOTAL_ registros',
+                        infoFiltered: '(Filtrados de _MAX_ registros.)',
+                        paginate: { first: 'Primero', previous: 'Anterior', next: 'Siguiente', last: 'Último' }
+                    }, buttons: botones
+                }">
                     <thead>
                         <tr>
                             <th>id</th>
                             <th>#</th>
                             <th>Identificación</th>
-                            <th>Nombres</th>  
+                            <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Turno</th>
                             <th>Telefono</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                 </DataTable>
                 <ModalEliminar :id="selectedID">
-                    
+
                 </ModalEliminar>
                 <ModalInfo :title="titleModal" :body="bodyModal">
 
@@ -173,9 +173,9 @@ export default {
     },
     data() {
         return {
-            titleModal:'Atención',
-            bodyModal:'',
-            selectedID:null,
+            titleModal: 'Atención',
+            bodyModal: '',
+            selectedID: null,
             products: null,
             columns: [
                 {
@@ -189,8 +189,15 @@ export default {
                 { data: 'nombres' },
                 { data: 'apellidos' },
                 { data: 'turno' },
-                { data: 'telefono',}
-                
+                { data: 'telefono', },
+                {
+                    data: null, render: function () {
+
+                        return `<button id="eliminar" class="btn btn-danger">
+                      Eliminar
+                    </button>`
+                    }
+                }
 
             ],
             botones: [
@@ -226,6 +233,12 @@ export default {
         this.getProducts();
         this.$nextTick(() => {
             const table = $('#tabla').DataTable();
+            table.on('click', '#eliminar', (event) => {
+                event.stopPropagation();
+                const rowData = table.row($(event.currentTarget).closest('tr')).data();
+                console.log(rowData);
+                this.deleteRecep(rowData._id);
+            });
             table.on('click', 'tr', (event) => {
                 const rowData = table.row(event.currentTarget).data();
                 if (rowData != null) {
@@ -236,7 +249,20 @@ export default {
         });
     },
     methods: {
-        imprimir(data){
+        deleteRecep(id) {
+            if (confirm('¿Está seguro que desea eliminar a este recepcionista?')) {
+                axios.delete('api/recepcionistas', { params: { id: id } })
+                    .then(res => {
+                        if (res.status == 200) {
+                            document.getElementById(id).remove();
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
+        },
+        imprimir(data) {
             console.log(data);
         },
         getProducts() {

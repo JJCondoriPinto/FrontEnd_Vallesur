@@ -8,10 +8,7 @@
 
         <div class="app-content">
           <HeaderComponent>
-            <template #title> Habitaciones </template>-++
-            <template #actions>
-
-            </template>
+            <template #title> Habitaciones </template>
             <template #button-insert>
               <router-link :to="{ name: 'gerente-habitaciones-create' }">
                 <button class="app-content-headerButton">

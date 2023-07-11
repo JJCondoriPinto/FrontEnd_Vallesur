@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="">
-            <div class="table-responsive">
+            <div class="table-container">
                 <DataTable :data="reservas" :columns="columns" id="tabla"
                     class="tablita" :options="{
                         responsive: true, autoWidth: false, dom: 'Bfrtip', language: {
@@ -38,9 +38,7 @@
         </div>
     </div>
 </template>
-<style>
 
-</style>
 <script>
 import axios from 'axios';
 import DataTable from 'datatables.net-vue3';
@@ -203,7 +201,7 @@ export default {
             ;
         },
         onRowClick(id) {
-            this.$router.push({ name: 'gerente-huespedes-show', params: { id: id } });
+            this.$router.push({ name: 'recepcionista-huespedes-show', params: { id: id } });
         }
     }
 }

@@ -1,11 +1,11 @@
 <template>
   <div class="row">
     <div class="">
-      <div class="table-responsive">
-        <DataTable
+      <div class="table-container">
+        <DataTable id="tabla"
           :data="CheckIn"
           :columns="columns"
-          class="table table-striped table-bordered display table-hover table-dark"
+          class="tablita"
           :options="{
             responsive: true,
             autoWidth: true,
@@ -162,7 +162,7 @@ export default {
     this.getCheckins();
 
     this.$nextTick(() => {
-      const table = $(".table").DataTable();
+      const table = $("#tabla").DataTable();
       // Aun no se para que sirve
       table.on("click", "#editar", (event) => {
         event.stopPropagation();

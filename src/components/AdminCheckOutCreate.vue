@@ -40,7 +40,8 @@ import axios from 'axios';
                     this.formData
                 ).then((value)=>{
                     console.log(value);
-                    this.$router.push({name:'recepcionista-check'})
+                    this.$router.push({name:'recepcionista-check'}) 
+
                 }) 
                 console.log(this.formData)
             }

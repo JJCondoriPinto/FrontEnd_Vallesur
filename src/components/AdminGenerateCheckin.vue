@@ -237,7 +237,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .form-group {
     display: flex;
     flex-direction: column;
@@ -278,7 +278,7 @@ export default {
                 id_reserva: '',
                 id_recepcionista: '',
                 tipo_dni: '',
-                paxs: null,
+                paxs: [],
                 fecha_ingreso: '',
                 nota_adicionales: '',
             },
@@ -477,16 +477,12 @@ export default {
         }
             },
         getReserva() {
-            axios.get('/api/reserva', {
-                params:{
-                    "id": this.id
-                }
-            }).then((value) => {
+            axios.get('/api/reserva/'+this.id).then((value) => {
                 console.log(value.data.data);
                 this.formData.id_reserva = value.data.data._id;
                 this.formData.id_recepcionista = this.$store.state.user._id;
-                this.nro_pax = value.data.data[0].datosReserva.pax_reserva;
-                this.nombreHuesped = value.data.data[0].huesped.nombres + " " + value.data.data[0].huesped.apellidos;
+                this.nro_pax = value.data.data.datosReserva.pax_reserva;
+                this.nombreHuesped = value.data.data.huesped.nombres + " " + value.data.data.huesped.apellidos;
                 console.log(this.nro_pax);
             });
         },

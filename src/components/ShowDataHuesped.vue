@@ -5,7 +5,7 @@
             <div class="profile-maintitle"><span class="topic-title">{{ huesped ? huesped.nombres : 'Cargando' }}</span>
             </div>
             <div class="profile-subtitle">ID • {{ huesped ? huesped._id : 'Cargando' }}</div>
-            <div class="profile-head-info">
+            <div class="profile-head-info" v-if="isrecepcionista" >
                 <router-link :to="{ name: 'recepcionista-huespedes-edit', params: { id: huesped ? huesped._id : 1 } }">
 
                     <button class="btn btn-success">
@@ -94,11 +94,13 @@ export default {
     data() {
         return {
             huesped: null,
+            isrecepcionista: this.$store.state.user.rol == "recepcionista" ? true : false
         }
     },
     props: ['id'],
     mounted() {
         this.getUser();
+        console.log(this.$store.state.user)
     },
     components: {
         Modal
