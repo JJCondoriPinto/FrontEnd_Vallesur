@@ -249,7 +249,7 @@ export default {
         },
 
         onRowClick(id) {
-            this.$router.push({ name: 'recepcionista-habitaciones-show', params: { id: id } });
+            this.$router.push({ name: 'gerente-recepcionistas-show', params: { id: id } });
         }
     }
 }
