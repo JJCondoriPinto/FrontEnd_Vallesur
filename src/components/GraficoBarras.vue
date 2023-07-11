@@ -6,7 +6,7 @@
  
  <script>
  import Chart from 'chart.js/auto';
- 
+ import axios from 'axios';
  export default{
  
  mounted() {
@@ -48,17 +48,10 @@
                  }
              })
              var element;
-             let url = 'http://127.0.0.1:8000/api/grafico_barras_2'
-             fetch(url)
-             .then(function(response) {
-                 if (response.ok) {
-                 return response.json();
-                 } else {
-                 throw new Error('Error en la petición. Código de estado:', response.status);
-                 }
-             })
+             let url = '/api/grafico_barras_2'
+             axios.get(url)
              .then(function(data) {
-             data.forEach(element => {
+             data.data.forEach(element => {
                  myChart.data['labels'].push(element.tipo)
                  myChart.data['datasets'][0].data.push(element.costoPromedio)
                  myChart.update()
