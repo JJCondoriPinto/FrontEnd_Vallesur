@@ -11,8 +11,6 @@
                         <template #title>
                             Ingresar Documento de Huesped
                         </template>
-                        <template #actions>
-                        </template>
                     </HeaderComponent>
                     <CreateUserForm :id="id">
                         

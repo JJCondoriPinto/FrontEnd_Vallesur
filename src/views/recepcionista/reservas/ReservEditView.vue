@@ -11,8 +11,6 @@
                         <template #title>
                             Editar Reserva
                         </template>
-                        <template #actions>
-                        </template>
                     </HeaderComponent>
                     <AdminEditarReserva :id=this.id>
 

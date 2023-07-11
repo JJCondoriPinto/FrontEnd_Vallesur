@@ -101,9 +101,6 @@ export default {
   }
 
   .second {
-/*     border-color: #1a2740;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #1a2740 inset, 0 0 0 0 #1a2740; */
     background-color:#1a2740;
     border-color:#1a2740 ;
     color: #fff;
@@ -113,13 +110,9 @@ export default {
     height: 100px;
     font-family: "Mochiy Pop P One", sans-serif;
     text-align: left;
-    /*-webkit-text-stroke: 1px black;*/ /*Le da borde a las letras */
   }
   
   .third {
-/*     border-color: #1a2740;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #1a2740 inset, 0 0 0 0 #1a2740; */
     background-color:#1a2740;
     border-color:#1a2740 ;
     color: #fff;
@@ -128,7 +121,6 @@ export default {
     width: 20em;
     height: 100px;
     font-family: "Mochiy Pop P One", sans-serif;
-    /*-webkit-text-stroke: 1px black;*/ /*Le da borde a las letras */
   }
   
   .tamano {

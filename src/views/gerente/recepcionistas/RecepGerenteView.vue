@@ -1,19 +1,3 @@
-<script setup>
-    /* function deleteRecep(id) {
-        if ( confirm('¿Está seguro que desea eliminar a este recepcionista?') ) {
-            axios.delete('api/recepcionistas', {params: {id:id}})
-            .then(res => {
-                if (res.status == 200) {
-                    document.getElementById(id).remove();
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })  
-        }
-    } */
-</script>
-
 <template>
   <div class="html">
     <div class="body-app">

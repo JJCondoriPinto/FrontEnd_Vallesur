@@ -14,7 +14,7 @@
                     </HeaderComponent>
                     <ShowData :id=this.id>
 
-</ShowData>
+                    </ShowData> 
                 </div>
             </div>
         </div>
@@ -29,7 +29,6 @@
         name: 'HuespedesRecepView',
         data(){
             return {
-
                 id: this.$route.params.id,
             }
         },

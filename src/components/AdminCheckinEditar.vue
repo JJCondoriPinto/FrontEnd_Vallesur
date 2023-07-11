@@ -37,11 +37,8 @@ export default {
     },
     methods: {
         updateCheckin(){
-            console.log('hola aqui estoy');
             axios.put('/api/checkin/'+ this.formData._id,this.formData).then((value)=>{
-                console.log(value);
-               
-                 this.$router.push({name:'recepcionista-check'})
+                this.$router.push({name:'recepcionista-check'})
             })
         },  
         // Conversion de la fecha actual en formato de cadena
@@ -62,12 +59,9 @@ export default {
         },
         getCheckin() {
             axios.get('/api/checkin/'+this.id).then((value) => {
-                console.log('/api/checkin/'+this.id);
-                console.log(value);
                 this.formData._id = value.data.data._id;
                 this.formData.fecha_checkin = value.data.data.reserva.datosReserva.fecha_checkin;
                 this.formData.fecha_checkout = value.data.data.reserva.datosReserva.fecha_checkout;
-                console.log(this.formData);
             })
         },
         getFormattedCheckOutDate() {

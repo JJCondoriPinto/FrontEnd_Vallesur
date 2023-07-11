@@ -9,7 +9,6 @@
                 <div class="app-content">
                     <HeaderComponent>
                         <template #title> Detalles de Reserva</template>
-                        <template #button-insert></template>
                     </HeaderComponent>
                     <ShowData :id=this.id>
 

@@ -201,7 +201,7 @@ export default {
             ;
         },
         onRowClick(id) {
-            this.$router.push({ name: 'gerente-huespedes-show', params: { id: id } });
+            this.$router.push({ name: 'recepcionista-huespedes-show', params: { id: id } });
         }
     }
 }

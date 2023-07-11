@@ -10,13 +10,6 @@
               <template #title> Habitación 
                 <span>{{ this.habitacion.nro_habitacion  }}</span>
               </template>
-              <template #button-insert>
-                <router-link :to="{ name: 'gerente-habitaciones-create' }">
-                  <button class="app-content-headerButton">
-                    Registrar habitación
-                  </button>
-                </router-link>
-              </template>
             </HeaderComponent>
 
             <!-- aqui contenido de habitacion -->

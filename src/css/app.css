@@ -1,10 +1,8 @@
 @import url("root.css");
-@import url("root.css");
 
 * {
     box-sizing: border-box;
 }
-
 
 .body-app,
 .html {
@@ -12,7 +10,6 @@
     padding: 0;
     height: 100vh;
 }
-
 
 .body-app {
     height: 100%;
@@ -22,23 +19,19 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-
 .button {
     background: none;
     border: 2px solid;
-    font: 300 1em "Fira Sans", sans-serif;
     font: 300 1em "Fira Sans", sans-serif;
     line-height: 1;
     padding: 0.5rem 1rem;
     text-align: center;
     cursor: pointer;
     text-decoration-line: none;
-    text-decoration-line: none;
 }
 
 textarea {
     resize: vertical;
-    min-height: auto;
     min-height: auto;
 }
 
@@ -125,7 +118,8 @@ input {
     margin-bottom: 4px;
 }
 
-.sidebar-list-item a, .sidebar-list-item button {
+.sidebar-list-item a,
+.sidebar-list-item button {
     display: flex;
     align-items: center;
     width: auto;
@@ -134,7 +128,6 @@ input {
     text-decoration: none;
     font-size: 14px;
     line-height: 24px;
-    border: none;
     border: none;
 }
 .sidebar-list-item svg {
@@ -458,7 +451,6 @@ input {
 .tableView {
     display: inline;
     overflow-x: auto;
-    overflow-x: auto;
 }
 .tableView .products-row {
     display: flex;
@@ -552,9 +544,6 @@ input {
     align-items: center;
     padding: 4px 8px;
     border: none;
-    border: none;
-    border: none;
-    border: none;
     font-size: 12px;
 }
 .status:before {
@@ -564,7 +553,6 @@ input {
     border-radius: 50%;
     margin-right: 4px;
 }
-
 
 .status.Libre {
     color: var(--status-available);
@@ -781,12 +769,12 @@ input {
 .form-image {
     align-items: center;
 }
-.form-image img{
+.form-image img {
     max-width: 400px;
 }
 .form-button .form-add {
     background-color: var(--button-add);
-    transition: background-color .1s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
     color: var(--app-content-main-color);
     font-weight: bold;
     font-size: 1.2rem;
@@ -795,7 +783,7 @@ input {
 }
 .form-button .form-add:hover {
     background-color: var(--button-add-hover);
-} 
+}
 .form-subgroup textarea {
     grid-column: 1 / 3;
 }
@@ -821,12 +809,12 @@ input {
 .form-image {
     align-items: center;
 }
-.form-image img{
+.form-image img {
     max-width: 400px;
 }
 .form-button .form-add {
     background-color: var(--button-add);
-    transition: background-color .1s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
     color: var(--app-content-main-color);
     font-weight: bold;
     font-size: 1.2rem;
@@ -835,7 +823,7 @@ input {
 }
 .form-button .form-add:hover {
     background-color: var(--button-add-hover);
-} 
+}
 .form-subgroup textarea {
     grid-column: 1 / 3;
 }
@@ -844,17 +832,11 @@ input {
     background-color: var(--input-radio);
     height: auto;
     width: 100%;
-    width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    border-radius: 0 0 1rem 1rem;
     border-radius: 0 0 1rem 1rem;
     margin-bottom: 1rem;
 }
-.form-input[type=radio] {
-    width: 15px;
-    height: 15px;
-}
-.form-input[type=radio] {
+.form-input[type="radio"] {
     width: 15px;
     height: 15px;
 }
@@ -869,7 +851,7 @@ input {
 }
 
 .radio-group span {
-    font-size: .9rem;
+    font-size: 0.9rem;
 }
 .label-radio {
     display: flex;
@@ -925,7 +907,6 @@ input {
     margin-bottom: 0;
     padding: 0.2rem 0;
     width: 100%;
-    width: 100%;
     text-align: center;
     color: var(--sidebar-main-color);
     background-color: var(--sidebar-hover-link);
@@ -944,23 +925,23 @@ input {
     flex-direction: column;
     row-gap: 1rem;
 }
-.buttons button{
+.buttons button {
     width: 100%;
 }
-.buttons button{
+.buttons button {
     width: 100%;
 }
 #btn-edit-store,
 #btn-editUser-store {
     display: none;
 }
-#btn-edit-cancel,#btn-editUser-cancel {
+#btn-edit-cancel,
+#btn-editUser-cancel {
     display: none;
 }
 #recepUpdate-contraConfirm {
     display: none;
 }
-
 
 .form_select {
     background-color: var(--app-content-secondary-color);
@@ -1011,7 +992,6 @@ input {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-
 .container {
     padding: 2px 16px;
 }
@@ -1032,7 +1012,7 @@ input {
     font-size: 12px;
     width: 100%;
     height: 100%;
-} 
+}
 @media screen and (min-width: 700px) {
     .card-statistics {
         grid-template-columns: repeat(2, 1fr);
@@ -1056,7 +1036,7 @@ input {
     height: 100%;
     width: 100%;
 }
-.reminds .remind{
+.reminds .remind {
     background-color: var(--remind-card);
     color: var(--app-content-main-color);
     border: none;
@@ -1082,45 +1062,43 @@ input {
     }
 }
 
-
 /*scroll*/
 .scrollable-content {
-  height: auto; 
-  overflow-y: scroll;
+    height: auto;
+    overflow-y: scroll;
 }
 
 /* imagen */
 .image-container {
-  padding: 10px;
-  padding-left: 50px;
+    padding: 10px;
+    padding-left: 50px;
 }
 
 .image-container img {
-  max-width: auto;
-  width: 100%;
-  height: 250px;
-  border-radius: 10px;
+    max-width: auto;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
 }
-
 
 /* grid y estilo de cartas */
 li {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .card :before {
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  background-color: #eee;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
-  font-size: 28px;
-  font-style: normal;
-  left: 50%;
-  line-height: 60px;
-  position: absolute;
-  top: -30px;
-  width: 60px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    font-size: 28px;
+    font-style: normal;
+    left: 50%;
+    line-height: 60px;
+    position: absolute;
+    top: -30px;
+    width: 60px;
 }
 .card {
     margin-top: 50px;
@@ -1134,58 +1112,58 @@ li {
     float: left;
 }
 .card .card-question {
-  margin: 20px 0 20px;
-  font-size: 150%;
-  color: var(--app-content-main-color);
+    margin: 20px 0 20px;
+    font-size: 150%;
+    color: var(--app-content-main-color);
 }
 .card .card-separator {
-  width: 100%;
-  margin: 10px 0 10px 0;
+    width: 100%;
+    margin: 10px 0 10px 0;
 }
 .card .card-fonter {
     color: var(--app-content-main-color);
     text-align: center;
 }
 .card a {
-  text-decoration: none;
-  color: #7f8c8d;
+    text-decoration: none;
+    color: #7f8c8d;
 }
 
 .card-red {
-  border-top: 4px solid #e74c3c;
+    border-top: 4px solid #e74c3c;
 }
 .card-red :before {
-  color: #e74c3c;
-  content: "";
-  font-family: "FontAwesome";
+    color: #e74c3c;
+    content: "";
+    font-family: "FontAwesome";
 }
 .card-red .card-separator {
-  border: 1px solid #e74c3c;
+    border: 1px solid #e74c3c;
 }
 .card-red .card-answer-separator {
-  border: 1px dotted #e74c3c;
+    border: 1px dotted #e74c3c;
 }
 
 .card-green {
-  border-top: 4px solid #16a085;
+    border-top: 4px solid #16a085;
 }
 .card-green :before {
-  color: #16a085;
-  content: "";
-  font-family: "FontAwesome";
+    color: #16a085;
+    content: "";
+    font-family: "FontAwesome";
 }
 .card-green .card-separator {
-  border: 1px solid #16a085;
+    border: 1px solid #16a085;
 }
 
 .card-blue {
-  border-top: 4px solid #3498db;
+    border-top: 4px solid #3498db;
 }
 .card-blue :before {
-  color: #3498db;
-  content: "";
-  font-family: "FontAwesome";
+    color: #3498db;
+    content: "";
+    font-family: "FontAwesome";
 }
 .card-blue .card-separator {
-  border: 1px solid #3498db;
+    border: 1px solid #3498db;
 }
