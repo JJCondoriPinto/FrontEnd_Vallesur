@@ -1,7 +1,7 @@
 <template>
     <div class="container-edit">
         <div class="form-parent card-show-parent">
-            <div class="form">
+            <div class="form_edit">
                 <form class="form-update" @submit.prevent="updateHuesped">
                     <input type="hidden" name="estado" value="{{ }}">
                     <div class="card-header">
@@ -85,17 +85,16 @@ export default {
     },
     props: ['id'],
     mounted() {
-        this.getUser();
+        this.getUserHuesp();
     },
     methods: {
-        getUser() {
+        getUserHuesp() {
             axios.get("api/huesped", {
                 params: {
                     tipo: "id",
                     id: this.id
                 }
             }).then((value) => {
-                console.log(value);
                 this.huesped = value.data.data;
                 this.nombres = this.huesped.nombres;
                 this.apellidos = this.huesped.apellidos;
@@ -148,8 +147,6 @@ export default {
                 };
             axios.put('api/huespedes/'+this.id,params).then(
                 (value)=>{
-                    console.log(value);
-                    console.log(params);
                     this.$router.push({ name: 'recepcionista-huespedes' });
                 }
             )
@@ -159,13 +156,13 @@ export default {
 </script>
 <style scoped>
 @import url('@/css/app.css');
-.form{
+.form_edit{
     max-width: 400px;
     align-items: center;
     align-content: center;
     align-self: center;
 }
-.form label{
+.form_edit label{
     max-width: 400px;
     text-align: left;
 }
