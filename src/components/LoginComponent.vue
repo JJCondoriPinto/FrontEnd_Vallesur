@@ -21,7 +21,6 @@
               Gracias por trabajar con nosotros
             </p>
             <div id="messageApi" class="w-100 text-center">{{ $store.state.errors }}</div>
-            <div id="messageApi" class="w-100 text-center">{{ $store.state.errors }}</div>
           </div>
         </div>
         <div class="switch__container form_parent">

@@ -8,7 +8,7 @@
 
         <div class="app-content">
           <HeaderComponent>
-            <template #title> Habitaciones </template>-++
+            <template #title> Habitaciones </template>
           </HeaderComponent>
           <tablaHabitaciones>
             
@@ -32,10 +32,6 @@ export default {
   data: () => ({
     habitaciones: null,
   }),
-  created() {
-    // Peticion para lista de habitaciones
-
-  },
   components: {
     SidebarComponent,
     ListSidebarRecepcionista,
