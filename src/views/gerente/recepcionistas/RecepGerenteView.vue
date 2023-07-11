@@ -1,5 +1,5 @@
 <script setup>
-    function deleteRecep(id) {
+    /* function deleteRecep(id) {
         if ( confirm('¿Está seguro que desea eliminar a este recepcionista?') ) {
             axios.delete('api/recepcionistas', {params: {id:id}})
             .then(res => {
@@ -11,7 +11,7 @@
                 console.log(err);
             })  
         }
-    }
+    } */
 </script>
 
 <template>
@@ -26,7 +26,6 @@
           <HeaderComponent>
             <template #title> Recepcionistas </template>-++
             <template #actions>
-              <ActionsComponent />
             </template>
             <template #button-insert>
               <router-link :to="{ name: 'gerente-recepcionistas-create' }">
@@ -37,7 +36,7 @@
             </template>
           </HeaderComponent>
 
-          <table class="products-area-wrapper tableView">
+          <!-- <table class="products-area-wrapper tableView">
             <div class="products-header">
                 <div class="product-cell">
                   Identificacion
@@ -122,7 +121,7 @@
                 <div class="product-cell price">Accion</div>
             </div>
 
-            <!-- Aquí la lista de recepcionistas -->
+            
             <router-link :to="{ name:'gerente-recepcionistas-show', params: {id: recep._id} }" class="row-element" v-for="recep in recepcionistas" :key="recep._id" :id="recep._id">
               <tbody class="products-row">
                   <td class="product-cell identificacion">
@@ -155,7 +154,10 @@
                   </td>
               </tbody>
             </router-link>
-          </table>
+          </table> -->
+          <RecepcionistasTable>
+
+          </RecepcionistasTable>
         </div>
       </div>
     </div>
@@ -166,7 +168,7 @@
 import SidebarComponent from "@/components/SidebarComponent.vue";
 import ListSidebarGerente from "@/components/ListSidebarGerente.vue";
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import ActionsComponent from "@/components/ActionsComponent.vue";
+import RecepcionistasTable from "@/components/GerenteRecepcionistasTable.vue";
 
 import axios from "axios";
 
@@ -185,7 +187,7 @@ export default {
     SidebarComponent,
     ListSidebarGerente,
     HeaderComponent,
-    ActionsComponent,
+    RecepcionistasTable
   },
 };
 </script>
