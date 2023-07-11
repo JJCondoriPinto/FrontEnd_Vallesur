@@ -70,7 +70,7 @@
         created() {
             axios.get("api/home/remind")
             .then(res => {
-              this.reminds = res.data.data.length > 0 ? res.data.data : [{ titulo: "", descripcion: "" }];
+              this.reminds = res.data.data.length > 0 ? res.data.data : this.reminds;
             })
         },
         methods: {

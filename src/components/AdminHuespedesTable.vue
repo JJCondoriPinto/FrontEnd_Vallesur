@@ -147,30 +147,16 @@ export default {
                 const rowData = table.row($(event.currentTarget).closest('tr')).data();
                 console.log(`Editar registro con ID: ${rowData._id}`);
                 this.editarHuesped(rowData._id);
-
             });
             table.on('click', '#eliminar', (event) => {
                 event.stopPropagation();
                 const rowData = table.row($(event.currentTarget).closest('tr')).data();
                 this.selectedID = rowData._id
-                /*                 if (confirm('¿Estás seguro de que deseas eliminar este elemento?')) {
-                                    axios.delete('api/huespedes',{params:{id:rowData._id}}).then((value) => {
-                                        console.log(value);
-                                        this.bodyModal=value.data.message;
-                                        this.abrirModalInformativo();
-                                        //location.reload();
-                                    })
-                                } else {
-                                    // El usuario hizo clic en "Cancelar"
-                                    // No se realiza ninguna acción
-                                } */
             });
             table.on('click', 'tr', (event) => {
                 const rowData = table.row(event.currentTarget).data();
-                console.log("hola");
                 if (rowData != null) {
 
-                    console.log(rowData);
                     this.onRowClick(rowData._id);
                 }
             });
@@ -186,7 +172,6 @@ export default {
         getProducts() {
             axios.get("/api/huespedes").then(
                 response => (
-                    console.log(response),
                     this.products = response.data.data
                 )
             );
