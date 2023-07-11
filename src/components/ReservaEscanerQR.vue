@@ -34,8 +34,7 @@ export default {
 
     methods: {
         onDecode(result) {
-            console.log(result)
-           this.result = result; 
+            this.result = result; 
             window.location = result; 
         },
 

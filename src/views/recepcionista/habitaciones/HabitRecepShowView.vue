@@ -3,7 +3,7 @@
       <div class="body-app">
         <div class="app-container">
           <SidebarComponent>
-            <ListSidebarGerente />
+            <ListSidebarRecepcionista />
           </SidebarComponent>
           <div class="app-content">
             <HeaderComponent>
@@ -14,7 +14,7 @@
 
             <!-- aqui contenido de habitacion -->
             <div class="form-parent">
-                <form v-on:submit.prevent="update(this)" class="form" method="POST">
+                <form v-on:submit.prevent="update()" class="form" method="POST">
                     <input type="hidden" v-model="this.habitacion.estado" name="estado">
                     <input type="hidden" v-model="this.habitacion._id" name="id">
                     <div class="sub-form">
@@ -72,7 +72,7 @@
   
 <script>
   import SidebarComponent from "@/components/SidebarComponent.vue";
-  import ListSidebarGerente from "@/components/ListSidebarGerente.vue";
+  import ListSidebarRecepcionista from "@/components/ListSidebarRecepcionista.vue";
   import HeaderComponent from "@/components/HeaderComponent.vue";
   
   import axios from "axios";
@@ -104,7 +104,7 @@
     },
     components: {
       SidebarComponent,
-      ListSidebarGerente,
+      ListSidebarRecepcionista,
       HeaderComponent,
     },
   };

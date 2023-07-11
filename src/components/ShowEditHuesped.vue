@@ -160,7 +160,7 @@ export default {
 <style scoped>
 @import url('@/css/app.css');
 .form{
-    max-width: 400px;
+    /* max-width: 400px; */
     align-items: center;
     align-content: center;
     align-self: center;

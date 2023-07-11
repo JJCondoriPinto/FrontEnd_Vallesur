@@ -35,14 +35,109 @@
         </div>
     </div>
 </template>
-<style>
+<style >
 @import url('@/css/app.css');
 @import 'datatables.net-bs5';
 
-.table-container{
-    color: #fff;
+.table-responsive {
+    max-height: 500px;
+    color: white;
+    padding-right: 15px;
     margin-top: 50px;
-    margin-bottom: 40px;
+}
+.tablita {
+    background-color: rgb(35, 43, 72);
+    text-align: center;
+    text-transform: capitalize;
+    border-collapse: collapse;
+    border: 1px solid #000;
+
+}
+.dataTables_filter input {
+  margin-bottom: 20px !important;
+  margin-top: 30px;
+  color: white;
+  background-color: rgb(35, 43, 72);
+  border-color: #000;
+}
+
+.pagination .paginate_button{
+    cursor: pointer;
+    border: 1px solid #000 !important;
+    border: #000 !important;
+} 
+.tablita th {
+    color: #fff;
+    /* Color de texto para los encabezados de columna */
+    font-weight: bold;
+    /* Fuente en negrita para los encabezados de columna */
+}
+
+.tablita td {
+    color: #fff;
+    /* Color de texto para las celdas de datos */
+}
+
+.tablita tr {
+    transition: background-color 0.3s ease;
+    /* Transición de 0.3 segundos con aceleración */
+}
+
+.tablita {
+    border-spacing: 5px;
+    /* Ajusta el valor según el espacio deseado entre las celdas */
+}
+.dataTables_paginate a{
+    background-color: rgb(35, 43, 72) !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid #000 !important;
+    cursor: pointer !important;
+}
+.tablita{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+.tablita th,
+.tablita td {
+    padding: 10px;
+    /* Ajusta el valor de padding según sea necesario */
+}
+
+tr {
+    background-color: rgb(30, 30, 62);
+}
+
+.tablita tbody tr:hover {
+    background-color: #130f2b;
+    cursor: pointer;
+}
+.tablita tbody tr td {
+  border-bottom: 1.5px solid rgb(30, 30, 62);
+}
+
+.tablita tbody tr {
+    background-color: #130f2b;
+    cursor: pointer;
+    border-bottom: 1px solid #9e3c3c !important;
+}
+
+.table-responsive {
+    max-height: 500px;
+    color: white;
+    padding-right: 15px;
+    margin-top: 50px;
+
+}
+.tablita tr{
+    border-bottom: 5px solid #9e3c3c !important;
+}
+.btn.boton-acciones{
+    background-color: rgb(35, 43, 72);
+}
+.disponible-container{
+    background-color: rgb(52, 103, 86);
+    border-radius: 30px;
 }
 </style>
 <script>
